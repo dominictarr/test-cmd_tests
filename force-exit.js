@@ -29,19 +29,29 @@ function test (file, signal, callback) {
 
   child.on('exit'
     , helper.checkCall(function (err, signal) {
+        //setTimeout(function() {
         var report = JSON.parse(fs.readFileSync(tmp))
         fs.unlinkSync(tmp)
         callback(err, report)
-      },5000))
+        //}, 1000)
+      }, 5000))
 
     //child.stdout.on('data', console.log)
     child.stdout.on('data', function(){
-      child.kill(signal)
+      // was getting a race condition with this test.
+      // I added console.log to test runner
+      // which was killing the child process before 
+      // it had setup the the exit handler
+      // so tests where failing with cryptic error
+      // & removing some logging statements fixed it.
+      setTimeout(function () {child.kill(signal)},200)
+//      child.kill(signal)
     })
 
   return child
 
 }
+
 test('fixtures/hang.js', 'SIGTSTP', function (err, report) {
   it(err).ok()
   it(report).has({
