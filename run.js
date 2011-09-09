@@ -9,7 +9,7 @@ var cmd = require('test-cmd/runner')
 function test (file, signal, callback) {
   console.log('testing test-cmd against:' + file)
 
-  var child = cmd.runCP(adapter, path.join(_  _dirname, file), {}, helper.checkCall(callback, 5000))
+  var child = cmd.runCP(adapter, path.join(__dirname, file), {}, helper.checkCall(callback, 5000))
 
   child.stdout.on('data', function(){
     d.delay(child.kill.bind(child),1e3)(signal)
