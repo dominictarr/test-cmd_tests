@@ -9,7 +9,9 @@ cmd.exec([adapter
   , 'fixtures/passing.js'
   , 'fixtures/failure.js'
   , 'fixtures/error.js'
-  /*,  '--isolate'*/], {cwd: __dirname}, function (err, report) {
+  , 'fixtures/hang.js'
+  ,  '--isolate'
+  , '--timeout', 1e3], {cwd: __dirname, timeout: 1e3}, function (err, report) {
   if(err) throw err
   console.log(report)
   it(report).has({

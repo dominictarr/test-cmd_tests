@@ -8,6 +8,7 @@
 , "dependencies": {
     "it-is": ">= 0.0.3"
   , "test-cmd": "*"
+  , "test-helper": "*"
   }
 , "author": "Dominic Tarr <dominic.tarr@gmail.com> (http://bit.ly/dominictarr)"
 , "scripts": { "test": "meta-test test/*.js" } }

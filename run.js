@@ -4,11 +4,12 @@ var cmd = require('test-cmd/runner')
   , it = require ('it-is').style('colour')
   , helper = require('test-helper')
   , d = require('d-utils')
+  , path = require('path')
 
 function test (file, signal, callback) {
   console.log('testing test-cmd against:' + file)
 
-  var child = cmd.runCP(adapter, file, {}, helper.checkCall(callback, 5000))
+  var child = cmd.runCP(adapter, path.join(_  _dirname, file), {}, helper.checkCall(callback, 5000))
 
   child.stdout.on('data', function(){
     d.delay(child.kill.bind(child),1e3)(signal)
