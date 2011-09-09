@@ -9,6 +9,7 @@
     "it-is": ">= 0.0.3"
   , "test-cmd": "*"
   , "test-helper": "*"
+  , "d-utils": "~2.3"
   }
 , "author": "Dominic Tarr <dominic.tarr@gmail.com> (http://bit.ly/dominictarr)"
 , "scripts": { "test": "meta-test test/*.js" } }
