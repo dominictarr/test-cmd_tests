@@ -2,7 +2,7 @@
 
 testing test-cmd:
   
-  * should generate the correct report. 
+  * should generate the correct report.  
     this is the same paragraph
 
   * should return the correct error code.
